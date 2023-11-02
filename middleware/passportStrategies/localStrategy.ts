@@ -25,17 +25,17 @@ const localStrategy = new LocalStrategy(
   }
 );
 
-/*
-FIX ME (types) 😭
-*/
-passport.serializeUser(function (user: any, done: any) {
+passport.serializeUser(function (
+  user: Express.User,
+  done: (err: any, id?: number) => void
+) {
   done(null, user.id);
 });
 
-/*
-FIX ME (types) 😭
-*/
-passport.deserializeUser(function (id: number, done: any) {
+passport.deserializeUser(function (
+  id: number,
+  done: (err: any, id?: any) => void
+) {
   let user = getUserById(id);
   if (user) {
     done(null, user);
