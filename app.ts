@@ -3,8 +3,7 @@ import expressLayouts from "express-ejs-layouts";
 import session from "express-session";
 import path from "path";
 import passportMiddleware from "./middleware/passportMiddleware";
-import "./types/index";
-
+import "./types/express/index";
 const port = process.env.port || 8000;
 
 const app = express();
