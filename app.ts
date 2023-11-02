@@ -2,7 +2,7 @@ import express from "express";
 import expressLayouts from "express-ejs-layouts";
 import session from "express-session";
 import path from "path";
-import passportMiddleware from './middleware/passportMiddleware';
+import passportMiddleware from "./middleware/passportMiddleware";
 
 const port = process.env.port || 8000;
 
@@ -33,14 +33,14 @@ app.use(express.urlencoded({ extended: true }));
 passportMiddleware(app);
 
 app.use((req, res, next) => {
-  console.log(`User details are: `);
-  console.log(req.user);
+  // console.log(`User details are: `);
+  // console.log(req.user);
 
-  console.log("Entire session object:");
-  console.log(req.session);
+  // console.log("Entire session object:");
+  // console.log(req.session);
 
-  console.log(`Session details are: `);
-  console.log((req.session as any).passport);
+  // console.log(`Session details are: `);
+  // console.log((req.session as any).passport);
   next();
 });
 
