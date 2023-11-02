@@ -1,0 +1,21 @@
+<%- include ('./dashboard.ejs') %>
+
+<div
+  style="
+    margin-top: 20px;
+    border: rgba(128, 128, 128, 0.1) 1px solid;
+    padding: 10px;
+  "
+>
+  <p>Current Active Sessions:</p>
+
+  <% for(const key in sessions) {%>
+  <div id="<%=key %>">
+    <p>SessionID: <%= key %></p>
+    <p>UserID: <%= sessions[key] %></p>
+    <a href="admin/revoke/<%=key %>">Revoke Session</a>
+    <hr />
+  </div>
+
+  <% } %>
+</div>
