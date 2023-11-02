@@ -6,14 +6,12 @@ const router = express.Router();
 router.get("/", ensureAdmin, (req, res) => {
   if (req.sessionStore.all) {
     //create sessionBody
-    const sessionBody = {};
+    const sessionBody: { [key: string]: any } = {};
     req.sessionStore.all((err, sessions) => {
       if (sessions) {
         const activeSessions = Array.from(Object.entries(sessions));
-
         activeSessions.forEach((element) => {
           const [keys, values] = element;
-          //@ts-ignore
           sessionBody[keys] = values.passport?.user;
         });
       }
